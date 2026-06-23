@@ -2,8 +2,8 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Badge } from "@/components/ui/badge";
 import type { Work } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/client";
 
 function getYouTubeId(url: string): string | null {
   const match = url.match(
@@ -19,14 +19,15 @@ export function WorkDetail({ work }: { work: Work }) {
 
   const title = work.title[locale] || work.title.en;
   const excerpt = work.excerpt[locale] || work.excerpt.en;
+
   const youtubeId =
-    work.media?.videoUrl ? getYouTubeId(work.media.videoUrl) : null;
+    work.media?.youtubeUrl ? getYouTubeId(work.media.youtubeUrl) : null;
 
   return (
     <article>
       <Link
         href="/work"
-        className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-gold"
+        className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <svg
           className="h-4 w-4"
@@ -44,12 +45,14 @@ export function WorkDetail({ work }: { work: Work }) {
         {t("backToWork")}
       </Link>
 
-      <div className="mb-6 flex items-center gap-3">
-        <Badge variant="outline" className="border-gold/30 text-gold">
+      <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+        <span className="font-medium uppercase tracking-[0.15em] text-muted-foreground">
           {tCat(work.category)}
-        </Badge>
-        <span className="text-sm text-muted-foreground">{work.platform}</span>
-        <span className="text-sm text-muted-foreground">
+        </span>
+        <span className="text-border">&middot;</span>
+        <span className="text-muted-foreground">{work.platform}</span>
+        <span className="text-border">&middot;</span>
+        <span className="text-muted-foreground">
           {new Date(work.publishedAt).toLocaleDateString(
             locale === "pt" ? "pt-BR" : "en-US",
             { year: "numeric", month: "long", day: "numeric" }
@@ -57,13 +60,24 @@ export function WorkDetail({ work }: { work: Work }) {
         </span>
       </div>
 
-      <h1 className="mb-6 font-heading text-4xl font-bold leading-tight sm:text-5xl">
+      <h1 className="mb-8 font-heading text-4xl font-bold leading-tight sm:text-5xl">
         {title}
       </h1>
 
-      {/* Video embed */}
+      {/* Cover image */}
+      {work.cover != null && !youtubeId && (
+        <div className="mb-8 overflow-hidden">
+          <img
+            src={urlFor(work.cover).width(1200).url()}
+            alt={title}
+            className="w-full object-cover"
+          />
+        </div>
+      )}
+
+      {/* YouTube embed */}
       {youtubeId && (
-        <div className="mb-8 aspect-video overflow-hidden rounded-xl">
+        <div className="mb-8 aspect-video overflow-hidden">
           <iframe
             src={`https://www.youtube.com/embed/${youtubeId}`}
             title={title}
@@ -83,7 +97,7 @@ export function WorkDetail({ work }: { work: Work }) {
           href={work.externalUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-gold bg-gold/10 px-6 py-3 text-sm font-medium text-gold transition-all hover:bg-gold hover:text-background"
+          className="inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm font-medium tracking-wide text-background transition-all hover:bg-transparent hover:text-foreground"
         >
           {t("visitOriginal")}
           <svg

@@ -29,7 +29,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="font-heading text-xl font-bold tracking-tight">
           MF
@@ -40,10 +40,10 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm transition-colors hover:text-gold ${
+              className={`text-sm tracking-wide transition-colors ${
                 pathname === item.href
-                  ? "text-gold font-medium"
-                  : "text-muted-foreground"
+                  ? "font-medium text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {item.label}
@@ -54,12 +54,11 @@ export function Header() {
         <div className="flex items-center gap-4">
           <button
             onClick={switchLocale}
-            className="rounded-full border border-border px-3 py-1 text-xs font-medium tracking-wider transition-colors hover:border-gold hover:text-gold"
+            className="rounded-full border border-border px-3 py-1 text-xs font-medium tracking-wider transition-colors hover:border-foreground hover:text-foreground"
           >
             {locale === "en" ? "PT" : "EN"}
           </button>
 
-          {/* Mobile menu button */}
           <MobileMenu navItems={navItems} />
         </div>
       </div>
@@ -92,14 +91,14 @@ function MobileMenu({
             />
           </svg>
         </summary>
-        <div className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-border bg-card p-2 shadow-xl">
+        <div className="absolute right-0 top-full mt-2 w-48 border border-border bg-card p-2 shadow-lg">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`block rounded-md px-3 py-2 text-sm transition-colors hover:bg-surface-hover ${
+              className={`block px-3 py-2 text-sm transition-colors hover:bg-muted ${
                 pathname === item.href
-                  ? "text-gold font-medium"
+                  ? "font-medium text-foreground"
                   : "text-muted-foreground"
               }`}
             >

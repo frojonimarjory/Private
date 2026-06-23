@@ -12,8 +12,8 @@
   "hero": {
     "greeting": "Oi, eu sou a",
     "name": "Marjory Frojoni",
-    "tagline": "Jornalista & Comunicadora",
-    "description": "Sou jornalista de formação e comunicadora de nascença. Comunicação é a minha paixão e a maneira como eu movimento o ambiente ao meu redor — quero conhecer, registrar, compartilhar e impactar o que vejo e vivo.",
+    "tagline": "Jornalista & Documentarista",
+    "description": "Jornalista multimídia especializada em transformação social e storytelling de interesse humano. Experiência em redações de alta pressão e relações estratégicas com a mídia para grandes instituições. Foco na interseção entre cultura, arte e advocacy social.",
     "cta": "Ver meus trabalhos"
   },
   "categories": {
@@ -34,7 +34,12 @@
   "about": {
     "title": "Sobre mim",
     "downloadCV": "Baixar currículo",
-    "experience": "Experiência"
+    "experience": "Experiência",
+    "education": "Formação",
+    "skills": "Habilidades",
+    "projects": "Filmografia & Projetos Sociais",
+    "languages": "Idiomas",
+    "bio": "Jornalista multimídia e documentarista especializada em transformação social e storytelling de interesse humano. Atualmente baseada em Chicago, IL. Ampla experiência em redações de alta pressão (TV Globo, UOL) e relações estratégicas com a mídia para grandes instituições (Sebrae-SP). Foco na interseção entre cultura, arte e advocacy social."
   },
   "contact": {
     "title": "Entre em contato",

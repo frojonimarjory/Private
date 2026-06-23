@@ -12,8 +12,8 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Marjory Frojoni",
-    "tagline": "Journalist & Storyteller",
-    "description": "I'm a journalist by training and a communicator by nature. Communication is my passion and the way I move the world around me — I want to know, record, share, and impact what I see and live.",
+    "tagline": "Journalist & Documentary Filmmaker",
+    "description": "Multimedia journalist specializing in social transformation and human-interest storytelling. Experience in high-pressure newsrooms and strategic media relations for major institutions. Focused on the intersection of culture, art, and social advocacy.",
     "cta": "View my work"
   },
   "categories": {
@@ -34,7 +34,12 @@
   "about": {
     "title": "About me",
     "downloadCV": "Download CV",
-    "experience": "Experience"
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Filmography & Social Projects",
+    "languages": "Languages",
+    "bio": "Multimedia Journalist and Documentary Filmmaker specializing in social transformation and human-interest storytelling. Currently based in Chicago, IL. Extensive experience in high-pressure newsrooms (TV Globo, UOL) and strategic media relations for major institutions (Sebrae-SP). Focused on the intersection of culture, art, and social advocacy."
   },
   "contact": {
     "title": "Get in touch",

@@ -5,7 +5,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border/50 py-8">
+    <footer className="border-t border-border py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
         <p className="text-sm text-muted-foreground">
           &copy; {year} Marjory Frojoni. {t("rights")}
@@ -15,7 +15,7 @@ export function Footer() {
             href="https://linkedin.com/in/marjory-frojoni/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-gold"
+            className="text-muted-foreground transition-colors hover:text-foreground"
             aria-label="LinkedIn"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -24,7 +24,7 @@ export function Footer() {
           </a>
           <a
             href="mailto:marjory.frojoni@unesp.br"
-            className="text-muted-foreground transition-colors hover:text-gold"
+            className="text-muted-foreground transition-colors hover:text-foreground"
             aria-label="Email"
           >
             <svg

@@ -2,30 +2,40 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { BentoGrid } from "./bento-grid";
-import { WorkCard } from "./work-card";
-import { mockWorks } from "@/lib/mock-data";
+import { BentoGrid, assignBentoSizes } from "./bento-grid";
+import { WorkCardBento } from "./work-card";
+import type { Work } from "@/lib/sanity/queries";
 
-export function FeaturedWorks() {
+export function FeaturedWorks({ works }: { works: Work[] }) {
   const t = useTranslations("work");
-
-  // Use mock data for now; will switch to Sanity fetch later
-  const featured = mockWorks.filter((w) => w.featured);
+  const sizes = assignBentoSizes(works.length);
 
   return (
     <div>
-      <div className="mb-8 flex items-center justify-between">
-        <h2 className="font-heading text-3xl font-bold">{t("title")}</h2>
+      <div className="mb-8 flex items-end justify-between">
+        <div>
+          <h2 className="font-heading text-3xl font-bold sm:text-4xl">
+            Portfolio
+          </h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {t("title")}
+          </p>
+        </div>
         <Link
           href="/work"
-          className="text-sm text-gold transition-colors hover:text-gold-light"
+          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
-          {t("viewProject")} →
+          {t("viewProject")} &rarr;
         </Link>
       </div>
       <BentoGrid>
-        {featured.map((work, i) => (
-          <WorkCard key={work._id} work={work} index={i} />
+        {works.map((work, i) => (
+          <WorkCardBento
+            key={work._id}
+            work={work}
+            index={i}
+            size={sizes[i]}
+          />
         ))}
       </BentoGrid>
     </div>

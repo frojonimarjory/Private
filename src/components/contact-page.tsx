@@ -5,11 +5,12 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 
 export function ContactPage() {
   const t = useTranslations("contact");
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -85,34 +86,30 @@ export function ContactPage() {
           />
         </div>
 
-        <Button
+        <button
           type="submit"
           disabled={status === "sending"}
-          className="rounded-full bg-gold px-8 py-3 text-background hover:bg-gold-light disabled:opacity-50"
+          className="border border-foreground bg-foreground px-8 py-3 text-sm font-medium tracking-wide text-background transition-all hover:bg-transparent hover:text-foreground disabled:opacity-50"
         >
           {status === "sending" ? t("sending") : t("send")}
-        </Button>
+        </button>
 
         {status === "success" && (
-          <p className="text-sm text-green-400">{t("success")}</p>
+          <p className="text-sm text-green-700">{t("success")}</p>
         )}
         {status === "error" && (
-          <p className="text-sm text-red-400">{t("error")}</p>
+          <p className="text-sm text-red-700">{t("error")}</p>
         )}
       </form>
 
       <div className="mt-12 border-t border-border pt-8">
-        <p className="mb-4 text-sm text-muted-foreground">
-          {t("subtitle")}
-        </p>
-        <div className="flex gap-4">
-          <a
-            href="mailto:marjory.frojoni@unesp.br"
-            className="text-gold transition-colors hover:text-gold-light"
-          >
-            marjory.frojoni@unesp.br
-          </a>
-        </div>
+        <p className="mb-4 text-sm text-muted-foreground">{t("subtitle")}</p>
+        <a
+          href="mailto:marjory.frojoni@unesp.br"
+          className="text-sm font-medium transition-colors hover:text-muted-foreground"
+        >
+          marjory.frojoni@unesp.br
+        </a>
       </div>
     </motion.div>
   );

@@ -1,10 +1,17 @@
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { WorkDetail } from "@/components/work-detail";
+import { getWorks, getWorkBySlug } from "@/lib/sanity/queries";
 import { mockWorks } from "@/lib/mock-data";
 
 export async function generateStaticParams() {
-  return mockWorks.map((work) => ({ slug: work.slug.current }));
+  try {
+    const works = await getWorks();
+    if (works.length) return works.map((w) => ({ slug: w.slug.current }));
+  } catch {
+    /* fallback below */
+  }
+  return mockWorks.map((w) => ({ slug: w.slug.current }));
 }
 
 export async function generateMetadata({
@@ -13,7 +20,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const work = mockWorks.find((w) => w.slug.current === slug);
+
+  let work;
+  try {
+    work = await getWorkBySlug(slug);
+  } catch {
+    work = mockWorks.find((w) => w.slug.current === slug) ?? null;
+  }
   if (!work) return {};
 
   const title = work.title[locale as "en" | "pt"] || work.title.en;
@@ -30,7 +43,12 @@ export default async function WorkSlugPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const work = mockWorks.find((w) => w.slug.current === slug);
+  let work;
+  try {
+    work = await getWorkBySlug(slug);
+  } catch {
+    work = mockWorks.find((w) => w.slug.current === slug) ?? null;
+  }
   if (!work) notFound();
 
   return (

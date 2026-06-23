@@ -2,7 +2,13 @@
 
 import { useTranslations } from "next-intl";
 
-const categories = ["all", "documentary", "article", "consulting", "podcast"] as const;
+const categories = [
+  "all",
+  "documentary",
+  "article",
+  "consulting",
+  "podcast",
+] as const;
 
 export type CategoryFilter = (typeof categories)[number];
 
@@ -21,10 +27,10 @@ export function CategoryFilterBar({
         <button
           key={cat}
           onClick={() => onChange(cat)}
-          className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
+          className={`px-4 py-1.5 text-sm font-medium tracking-wide transition-all ${
             active === cat
-              ? "bg-gold text-background"
-              : "border border-border text-muted-foreground hover:border-gold/50 hover:text-gold"
+              ? "bg-foreground text-background"
+              : "border border-border text-muted-foreground hover:border-foreground hover:text-foreground"
           }`}
         >
           {t(cat)}

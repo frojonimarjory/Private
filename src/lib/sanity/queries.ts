@@ -1,5 +1,10 @@
 import { sanityClient } from "./client";
 
+function client() {
+  if (!sanityClient) throw new Error("Sanity not configured");
+  return sanityClient;
+}
+
 export type Work = {
   _id: string;
   title: { en: string; pt: string };
@@ -8,17 +13,17 @@ export type Work = {
   description: { en: unknown[]; pt: unknown[] };
   category: "documentary" | "article" | "consulting" | "podcast";
   media: {
-    type: "image" | "video" | "embed";
-    image?: unknown;
+    type: "youtube" | "video" | "images" | "embed" | "none";
+    youtubeUrl?: string;
     videoUrl?: string;
+    images?: unknown[];
     embedCode?: string;
   };
-  thumbnail: unknown;
+  cover: unknown;
   externalUrl: string;
   platform: string;
   publishedAt: string;
   featured: boolean;
-  gridSize: "small" | "medium" | "large" | "wide" | "tall";
   order: number;
 };
 
@@ -39,29 +44,28 @@ const workFields = `
   description,
   category,
   media,
-  thumbnail,
+  cover,
   externalUrl,
   platform,
   publishedAt,
   featured,
-  gridSize,
   order
 `;
 
 export async function getWorks(): Promise<Work[]> {
-  return sanityClient.fetch(
+  return client().fetch(
     `*[_type == "work"] | order(order asc, publishedAt desc) { ${workFields} }`
   );
 }
 
 export async function getFeaturedWorks(): Promise<Work[]> {
-  return sanityClient.fetch(
+  return client().fetch(
     `*[_type == "work" && featured == true] | order(order asc) { ${workFields} }`
   );
 }
 
 export async function getWorkBySlug(slug: string): Promise<Work | null> {
-  return sanityClient.fetch(
+  return client().fetch(
     `*[_type == "work" && slug.current == $slug][0] { ${workFields} }`,
     { slug }
   );
@@ -70,14 +74,14 @@ export async function getWorkBySlug(slug: string): Promise<Work | null> {
 export async function getWorksByCategory(
   category: string
 ): Promise<Work[]> {
-  return sanityClient.fetch(
+  return client().fetch(
     `*[_type == "work" && category == $category] | order(order asc, publishedAt desc) { ${workFields} }`,
     { category }
   );
 }
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {
-  return sanityClient.fetch(
+  return client().fetch(
     `*[_type == "siteSettings"][0] {
       name,
       tagline,

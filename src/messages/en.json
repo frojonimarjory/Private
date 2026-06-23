@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "title": "Marjory Frojoni — Journalist & Storyteller",
+    "description": "Portfolio of Marjory Victória Frojoni — journalist, documentary filmmaker, podcast host, and media consultant."
+  },
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Marjory Frojoni",
+    "tagline": "Journalist & Storyteller",
+    "description": "I'm a journalist by training and a communicator by nature. Communication is my passion and the way I move the world around me — I want to know, record, share, and impact what I see and live.",
+    "cta": "View my work"
+  },
+  "categories": {
+    "all": "All",
+    "documentary": "Documentary",
+    "article": "Articles",
+    "consulting": "Consulting",
+    "podcast": "Podcast"
+  },
+  "work": {
+    "title": "Work",
+    "viewProject": "View project",
+    "visitOriginal": "Visit original",
+    "publishedAt": "Published at",
+    "backToWork": "Back to all work",
+    "featured": "Featured"
+  },
+  "about": {
+    "title": "About me",
+    "downloadCV": "Download CV",
+    "experience": "Experience"
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "Have a project in mind or want to collaborate? I'd love to hear from you.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! I'll get back to you soon.",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Built with"
+  },
+  "common": {
+    "readMore": "Read more",
+    "watchNow": "Watch now",
+    "listenNow": "Listen now"
+  }
+}

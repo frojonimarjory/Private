@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "title": "Marjory Frojoni — Jornalista & Comunicadora",
+    "description": "Portfólio de Marjory Victória Frojoni — jornalista, documentarista, apresentadora de podcast e assessora de imprensa."
+  },
+  "nav": {
+    "home": "Início",
+    "work": "Trabalhos",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Oi, eu sou a",
+    "name": "Marjory Frojoni",
+    "tagline": "Jornalista & Comunicadora",
+    "description": "Sou jornalista de formação e comunicadora de nascença. Comunicação é a minha paixão e a maneira como eu movimento o ambiente ao meu redor — quero conhecer, registrar, compartilhar e impactar o que vejo e vivo.",
+    "cta": "Ver meus trabalhos"
+  },
+  "categories": {
+    "all": "Todos",
+    "documentary": "Documentário",
+    "article": "Reportagens",
+    "consulting": "Assessoria",
+    "podcast": "Podcast"
+  },
+  "work": {
+    "title": "Trabalhos",
+    "viewProject": "Ver projeto",
+    "visitOriginal": "Ver original",
+    "publishedAt": "Publicado em",
+    "backToWork": "Voltar aos trabalhos",
+    "featured": "Destaque"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "downloadCV": "Baixar currículo",
+    "experience": "Experiência"
+  },
+  "contact": {
+    "title": "Entre em contato",
+    "subtitle": "Tem um projeto em mente ou quer colaborar? Adoraria ouvir de você.",
+    "name": "Nome",
+    "email": "E-mail",
+    "message": "Mensagem",
+    "send": "Enviar mensagem",
+    "sending": "Enviando...",
+    "success": "Mensagem enviada! Retorno em breve.",
+    "error": "Algo deu errado. Tente novamente."
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "madeWith": "Feito com"
+  },
+  "common": {
+    "readMore": "Leia mais",
+    "watchNow": "Assistir",
+    "listenNow": "Ouvir agora"
+  }
+}

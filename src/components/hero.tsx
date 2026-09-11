@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 
 export function Hero() {
   const t = useTranslations("hero");
+  const s = useTranslations("settings");
 
   return (
     <section className="h-[calc(100vh-4rem)]">
@@ -18,8 +19,8 @@ export function Hero() {
           className="relative h-full overflow-hidden bg-muted"
         >
           <img
-            src="/images/marjory-profile.jpg"
-            alt="Marjory Frojoni"
+            src={s("profileImageUrl")}
+            alt={t("name")}
             className="h-full w-full object-cover object-[center_60%]"
           />
         </motion.div>

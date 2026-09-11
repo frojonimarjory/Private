@@ -9,6 +9,16 @@
     "about": "Sobre",
     "contact": "Contato"
   },
+  "settings": {
+    "logoText": "MF",
+    "profileImageUrl": "/images/marjory-profile.jpg",
+    "email": "marjory.frojoni@unesp.br",
+    "location": "Chicago, IL",
+    "linkedinUrl": "https://linkedin.com/in/marjory-frojoni/",
+    "whatsappNumber": "13123992403",
+    "whatsappDisplay": "+1 (312) 399-2403",
+    "cvUrl": "/CV_Marjory_Frojoni.pdf"
+  },
   "hero": {
     "greeting": "Oi, eu sou a",
     "name": "Marjory Frojoni",
@@ -16,12 +26,24 @@
     "description": "Jornalista multimídia especializada em transformação social e storytelling de interesse humano. Experiência em redações de alta pressão e relações estratégicas com a mídia para grandes instituições. Foco na interseção entre cultura, arte e advocacy social.",
     "cta": "Ver meus trabalhos"
   },
+  "home": {
+    "portfolioHeading": "Portfolio"
+  },
+  "quote": {
+    "text": "Jornalista multimídia especializada em transformação social e storytelling de interesse humano. Experiência em redações de alta pressão e relações estratégicas com a mídia para grandes instituições. Foco na interseção entre cultura, arte e advocacy social.",
+    "attribution": "Marjory Frojoni"
+  },
   "categories": {
     "all": "Todos",
     "documentary": "Documentário",
     "article": "Reportagens",
     "consulting": "Assessoria",
     "podcast": "Podcast"
+  },
+  "spotlight": {
+    "eyebrow": "Documentário em destaque",
+    "watch": "Assistir ao documentário",
+    "viewProject": "Ver projeto"
   },
   "work": {
     "title": "Trabalhos",
@@ -39,7 +61,71 @@
     "skills": "Habilidades",
     "projects": "Filmografia & Projetos Sociais",
     "languages": "Idiomas",
-    "bio": "Jornalista multimídia e documentarista especializada em transformação social e storytelling de interesse humano. Atualmente baseada em Chicago, IL. Ampla experiência em redações de alta pressão (TV Globo, UOL) e relações estratégicas com a mídia para grandes instituições (Sebrae-SP). Foco na interseção entre cultura, arte e advocacy social."
+    "bio": "Jornalista multimídia e documentarista especializada em transformação social e storytelling de interesse humano. Atualmente baseada em Chicago, IL. Ampla experiência em redações de alta pressão (TV Globo, UOL) e relações estratégicas com a mídia para grandes instituições (Sebrae-SP). Foco na interseção entre cultura, arte e advocacy social.",
+    "experienceItems": [
+      {
+        "role": "Assessora de Imprensa",
+        "org": "Print Rio / SEBRAE-SP",
+        "period": "Ago 2024 — Dez 2025"
+      },
+      {
+        "role": "Repórter & Produtora",
+        "org": "TV TEM (TV Globo)",
+        "period": "Abr 2024 — Jul 2024"
+      },
+      {
+        "role": "Editora de Conteúdo",
+        "org": "Splash UOL",
+        "period": "Fev 2024 — Abr 2024"
+      },
+      {
+        "role": "Especialista em Inbound Marketing",
+        "org": "JOTA Jornalismo",
+        "period": "Mar 2022 — Jul 2023"
+      },
+      {
+        "role": "Estagiária de Jornalismo",
+        "org": "Record News",
+        "period": "Mar 2021 — Abr 2022"
+      }
+    ],
+    "educationItems": [
+      {
+        "degree": "Bacharelado em Jornalismo",
+        "institution": "UNESP — São Paulo State University",
+        "period": "2019 — 2023",
+        "detail": "TCC (Documentário): Bolshoi no Brasil — Diretora e produtora de documentário sobre o impacto cultural da Escola de Balé Bolshoi em Joinville."
+      }
+    ],
+    "projectItems": [
+      {
+        "kind": "Documentário",
+        "year": "2023",
+        "title": "Bolshoi no Brasil",
+        "description": "Documentário explorando a única escola Bolshoi fora da Rússia, focando na disciplina da dança como ferramenta de mobilidade social no Brasil."
+      },
+      {
+        "kind": "Projeto Social",
+        "year": "2019–2024",
+        "title": "LOBA — Acolhimento",
+        "description": "Iniciativa de empreendedorismo social fundada por Marjory, oferecendo apoio a mulheres e pessoas LGBTQIA+ sobreviventes de violência sexual. Consultoria para grandes eventos sobre protocolos de segurança e acessibilidade."
+      }
+    ],
+    "skillsList": [
+      "Produção de Vídeo",
+      "Edição",
+      "SEO",
+      "Análise de Dados",
+      "WordPress",
+      "RD Station",
+      "Google Ads",
+      "AP Style"
+    ],
+    "languageList": [
+      { "name": "Português", "level": "Nativo" },
+      { "name": "Inglês", "level": "Avançado" },
+      { "name": "Espanhol", "level": "Básico" }
+    ]
   },
   "contact": {
     "title": "Entre em contato",
@@ -50,7 +136,8 @@
     "send": "Enviar mensagem",
     "sending": "Enviando...",
     "success": "Mensagem enviada! Retorno em breve.",
-    "error": "Algo deu errado. Tente novamente."
+    "error": "Algo deu errado. Tente novamente.",
+    "whatsapp": "Chamar no WhatsApp"
   },
   "footer": {
     "rights": "Todos os direitos reservados.",

@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 export function QuoteSection() {
-  const t = useTranslations("hero");
+  const t = useTranslations("quote");
 
   return (
     <section className="border-y border-border bg-card py-20 sm:py-28">
@@ -16,12 +16,12 @@ export function QuoteSection() {
           transition={{ duration: 0.6 }}
         >
           <p className="font-heading text-2xl font-normal italic leading-relaxed sm:text-3xl">
-            &ldquo;{t("description")}&rdquo;
+            &ldquo;{t("text")}&rdquo;
           </p>
           <footer className="mt-8">
             <div className="mx-auto mb-4 h-px w-12 bg-foreground" />
             <cite className="text-sm font-medium not-italic tracking-wide">
-              {t("name")}
+              {t("attribution")}
             </cite>
           </footer>
         </motion.blockquote>

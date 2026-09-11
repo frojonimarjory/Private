@@ -9,6 +9,16 @@
     "about": "About",
     "contact": "Contact"
   },
+  "settings": {
+    "logoText": "MF",
+    "profileImageUrl": "/images/marjory-profile.jpg",
+    "email": "marjory.frojoni@unesp.br",
+    "location": "Chicago, IL",
+    "linkedinUrl": "https://linkedin.com/in/marjory-frojoni/",
+    "whatsappNumber": "13123992403",
+    "whatsappDisplay": "+1 (312) 399-2403",
+    "cvUrl": "/CV_Marjory_Frojoni.pdf"
+  },
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Marjory Frojoni",
@@ -16,12 +26,24 @@
     "description": "Multimedia journalist specializing in social transformation and human-interest storytelling. Experience in high-pressure newsrooms and strategic media relations for major institutions. Focused on the intersection of culture, art, and social advocacy.",
     "cta": "View my work"
   },
+  "home": {
+    "portfolioHeading": "Portfolio"
+  },
+  "quote": {
+    "text": "Multimedia journalist specializing in social transformation and human-interest storytelling. Experience in high-pressure newsrooms and strategic media relations for major institutions. Focused on the intersection of culture, art, and social advocacy.",
+    "attribution": "Marjory Frojoni"
+  },
   "categories": {
     "all": "All",
     "documentary": "Documentary",
     "article": "Articles",
     "consulting": "Consulting",
     "podcast": "Podcast"
+  },
+  "spotlight": {
+    "eyebrow": "Featured Documentary",
+    "watch": "Watch the documentary",
+    "viewProject": "View project"
   },
   "work": {
     "title": "Work",
@@ -39,7 +61,71 @@
     "skills": "Skills",
     "projects": "Filmography & Social Projects",
     "languages": "Languages",
-    "bio": "Multimedia Journalist and Documentary Filmmaker specializing in social transformation and human-interest storytelling. Currently based in Chicago, IL. Extensive experience in high-pressure newsrooms (TV Globo, UOL) and strategic media relations for major institutions (Sebrae-SP). Focused on the intersection of culture, art, and social advocacy."
+    "bio": "Multimedia Journalist and Documentary Filmmaker specializing in social transformation and human-interest storytelling. Currently based in Chicago, IL. Extensive experience in high-pressure newsrooms (TV Globo, UOL) and strategic media relations for major institutions (Sebrae-SP). Focused on the intersection of culture, art, and social advocacy.",
+    "experienceItems": [
+      {
+        "role": "Press Officer",
+        "org": "Print Rio / SEBRAE-SP",
+        "period": "Aug 2024 — Dec 2025"
+      },
+      {
+        "role": "Reporter & Producer",
+        "org": "TV TEM (TV Globo)",
+        "period": "Apr 2024 — Jul 2024"
+      },
+      {
+        "role": "Content Editor",
+        "org": "Splash UOL",
+        "period": "Feb 2024 — Apr 2024"
+      },
+      {
+        "role": "Inbound Marketing Specialist",
+        "org": "JOTA Jornalismo",
+        "period": "Mar 2022 — Jul 2023"
+      },
+      {
+        "role": "Journalism Intern",
+        "org": "Record News",
+        "period": "Mar 2021 — Apr 2022"
+      }
+    ],
+    "educationItems": [
+      {
+        "degree": "B.A. in Journalism",
+        "institution": "UNESP — São Paulo State University",
+        "period": "2019 — 2023",
+        "detail": "Thesis (Documentary): Bolshoi in Brazil — Director and producer of a documentary exploring the cultural impact of the Bolshoi Ballet School in Joinville, Brazil."
+      }
+    ],
+    "projectItems": [
+      {
+        "kind": "Documentary",
+        "year": "2023",
+        "title": "Bolshoi in Brazil",
+        "description": "Documentary exploring the only Bolshoi school outside of Russia, focusing on the discipline of dance as a tool for social mobility in Brazil."
+      },
+      {
+        "kind": "Social Project",
+        "year": "2019–2024",
+        "title": "LOBA — Acolhimento",
+        "description": "Social entrepreneurship initiative founded by Marjory, providing support for women and LGBTQIA+ survivors of sexual violence. Consulted for major events on safety protocols and accessibility."
+      }
+    ],
+    "skillsList": [
+      "Video Production",
+      "Editing",
+      "SEO",
+      "Data Analysis",
+      "WordPress",
+      "RD Station",
+      "Google Ads",
+      "AP News Style"
+    ],
+    "languageList": [
+      { "name": "Portuguese", "level": "Native" },
+      { "name": "English", "level": "Advanced" },
+      { "name": "Spanish", "level": "Beginner" }
+    ]
   },
   "contact": {
     "title": "Get in touch",
@@ -50,7 +136,8 @@
     "send": "Send message",
     "sending": "Sending...",
     "success": "Message sent! I'll get back to you soon.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "whatsapp": "Message on WhatsApp"
   },
   "footer": {
     "rights": "All rights reserved.",

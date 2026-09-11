@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import { PortableText, type PortableTextComponents } from "next-sanity";
 import { Link } from "@/i18n/navigation";
 import type { Work } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/client";
@@ -12,6 +13,55 @@ function getYouTubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
+const richTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => (
+      <p className="mb-5 leading-relaxed text-foreground/90">{children}</p>
+    ),
+    h2: ({ children }) => (
+      <h2 className="mb-4 mt-10 font-heading text-2xl font-bold">{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="mb-3 mt-8 font-heading text-xl font-semibold">{children}</h3>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="mb-5 border-l-2 border-foreground/30 pl-4 italic text-muted-foreground">
+        {children}
+      </blockquote>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => (
+      <ul className="mb-5 list-disc space-y-2 pl-5 text-foreground/90">
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol className="mb-5 list-decimal space-y-2 pl-5 text-foreground/90">
+        {children}
+      </ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="leading-relaxed">{children}</li>,
+    number: ({ children }) => <li className="leading-relaxed">{children}</li>,
+  },
+  marks: {
+    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
+    link: ({ children, value }) => (
+      <a
+        href={value?.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline underline-offset-2 transition-colors hover:text-muted-foreground"
+      >
+        {children}
+      </a>
+    ),
+  },
+};
+
 export function WorkDetail({ work }: { work: Work }) {
   const locale = useLocale() as "en" | "pt";
   const t = useTranslations("work");
@@ -19,6 +69,11 @@ export function WorkDetail({ work }: { work: Work }) {
 
   const title = work.title[locale] || work.title.en;
   const excerpt = work.excerpt[locale] || work.excerpt.en;
+
+  const descBlocks = (work.description?.[locale]?.length
+    ? work.description[locale]
+    : work.description?.en) as unknown[] | undefined;
+  const hasDescription = Array.isArray(descBlocks) && descBlocks.length > 0;
 
   const youtubeId =
     work.media?.youtubeUrl ? getYouTubeId(work.media.youtubeUrl) : null;
@@ -91,6 +146,15 @@ export function WorkDetail({ work }: { work: Work }) {
       <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
         {excerpt}
       </p>
+
+      {hasDescription && (
+        <div className="mb-10 max-w-2xl text-base">
+          <PortableText
+            value={descBlocks as never}
+            components={richTextComponents}
+          />
+        </div>
+      )}
 
       {work.externalUrl && (
         <a

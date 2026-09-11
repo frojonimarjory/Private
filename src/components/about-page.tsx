@@ -1,11 +1,35 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
+type ExperienceItem = { role?: string; org?: string; period?: string };
+type EducationItem = {
+  degree?: string;
+  institution?: string;
+  period?: string;
+  detail?: string;
+};
+type ProjectItem = {
+  kind?: string;
+  year?: string;
+  title?: string;
+  description?: string;
+};
+type LanguageItem = { name?: string; level?: string };
+
 export function AboutPage() {
-  const locale = useLocale() as "en" | "pt";
   const t = useTranslations("about");
+  const s = useTranslations("settings");
+
+  const experience = (t.raw("experienceItems") as ExperienceItem[]) ?? [];
+  const education = (t.raw("educationItems") as EducationItem[]) ?? [];
+  const projects = (t.raw("projectItems") as ProjectItem[]) ?? [];
+  const skills = (t.raw("skillsList") as string[]) ?? [];
+  const languages = (t.raw("languageList") as LanguageItem[]) ?? [];
+
+  const email = s("email");
+  const linkedinUrl = s("linkedinUrl");
 
   return (
     <motion.div
@@ -20,7 +44,7 @@ export function AboutPage() {
         <div>
           <div className="aspect-[3/4] overflow-hidden bg-muted">
             <img
-              src="/images/marjory-profile.jpg"
+              src={s("profileImageUrl")}
               alt="Marjory Frojoni"
               className="h-full w-full object-cover object-top"
             />
@@ -28,7 +52,7 @@ export function AboutPage() {
 
           <div className="mt-6 space-y-3 border-t border-border pt-6">
             <a
-              href="/CV_Marjory_Frojoni.pdf"
+              href={s("cvUrl")}
               download
               className="inline-flex w-full items-center justify-center gap-2 border border-foreground bg-foreground px-4 py-2.5 text-xs font-medium tracking-wide text-background transition-all hover:bg-transparent hover:text-foreground"
             >
@@ -48,10 +72,10 @@ export function AboutPage() {
               {t("downloadCV")}
             </a>
             <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
-              Chicago, IL
+              {s("location")}
             </p>
             <a
-              href="mailto:marjory.frojoni@unesp.br"
+              href={`mailto:${email}`}
               className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               <svg
@@ -67,10 +91,10 @@ export function AboutPage() {
                   d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
                 />
               </svg>
-              marjory.frojoni@unesp.br
+              {email}
             </a>
             <a
-              href="https://linkedin.com/in/marjory-frojoni/"
+              href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -96,20 +120,15 @@ export function AboutPage() {
             <div>
               <SectionTitle>{t("education")}</SectionTitle>
               <div className="space-y-4">
-                <CredentialItem
-                  primary={
-                    locale === "pt"
-                      ? "Bacharelado em Jornalismo"
-                      : "B.A. in Journalism"
-                  }
-                  secondary="UNESP — São Paulo State University"
-                  tertiary="2019 — 2023"
-                  detail={
-                    locale === "pt"
-                      ? "TCC (Documentário): Bolshoi no Brasil — Diretora e produtora de documentário sobre o impacto cultural da Escola de Balé Bolshoi em Joinville."
-                      : "Thesis (Documentary): Bolshoi in Brazil — Director and producer of a documentary exploring the cultural impact of the Bolshoi Ballet School in Joinville, Brazil."
-                  }
-                />
+                {education.map((item, i) => (
+                  <CredentialItem
+                    key={i}
+                    primary={item.degree}
+                    secondary={item.institution}
+                    tertiary={item.period}
+                    detail={item.detail}
+                  />
+                ))}
               </div>
             </div>
 
@@ -117,71 +136,14 @@ export function AboutPage() {
             <div>
               <SectionTitle>{t("experience")}</SectionTitle>
               <div className="space-y-4">
-                <CredentialItem
-                  primary={
-                    locale === "pt"
-                      ? "Assessora de Imprensa"
-                      : "Press Officer"
-                  }
-                  secondary="Print Rio / SEBRAE-SP"
-                  tertiary={
-                    locale === "pt"
-                      ? "Ago 2024 — Dez 2025"
-                      : "Aug 2024 — Dec 2025"
-                  }
-                />
-                <CredentialItem
-                  primary={
-                    locale === "pt"
-                      ? "Repórter & Produtora"
-                      : "Reporter & Producer"
-                  }
-                  secondary="TV TEM (TV Globo)"
-                  tertiary={
-                    locale === "pt"
-                      ? "Abr 2024 — Jul 2024"
-                      : "Apr 2024 — Jul 2024"
-                  }
-                />
-                <CredentialItem
-                  primary={
-                    locale === "pt"
-                      ? "Editora de Conteúdo"
-                      : "Content Editor"
-                  }
-                  secondary="Splash UOL"
-                  tertiary={
-                    locale === "pt"
-                      ? "Fev 2024 — Abr 2024"
-                      : "Feb 2024 — Apr 2024"
-                  }
-                />
-                <CredentialItem
-                  primary={
-                    locale === "pt"
-                      ? "Especialista em Inbound Marketing"
-                      : "Inbound Marketing Specialist"
-                  }
-                  secondary="JOTA Jornalismo"
-                  tertiary={
-                    locale === "pt"
-                      ? "Mar 2022 — Jul 2023"
-                      : "Mar 2022 — Jul 2023"
-                  }
-                />
-                <CredentialItem
-                  primary={
-                    locale === "pt"
-                      ? "Estagiária de Jornalismo"
-                      : "Journalism Intern"
-                  }
-                  secondary="Record News"
-                  tertiary={
-                    locale === "pt"
-                      ? "Mar 2021 — Abr 2022"
-                      : "Mar 2021 — Apr 2022"
-                  }
-                />
+                {experience.map((item, i) => (
+                  <CredentialItem
+                    key={i}
+                    primary={item.role}
+                    secondary={item.org}
+                    tertiary={item.period}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -190,35 +152,19 @@ export function AboutPage() {
           <div className="mt-10">
             <SectionTitle>{t("projects")}</SectionTitle>
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="border border-border p-5">
-                <p className="mb-1 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
-                  {locale === "pt" ? "Documentário" : "Documentary"} — 2023
-                </p>
-                <h3 className="mb-2 font-heading text-base font-semibold">
-                  {locale === "pt" ? "Bolshoi no Brasil" : "Bolshoi in Brazil"}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {locale === "pt"
-                    ? "Documentário explorando a única escola Bolshoi fora da Rússia, focando na disciplina da dança como ferramenta de mobilidade social no Brasil."
-                    : "Documentary exploring the only Bolshoi school outside of Russia, focusing on the discipline of dance as a tool for social mobility in Brazil."}
-                </p>
-              </div>
-              <div className="border border-border p-5">
-                <p className="mb-1 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
-                  {locale === "pt"
-                    ? "Projeto Social"
-                    : "Social Project"}{" "}
-                  — 2019–2024
-                </p>
-                <h3 className="mb-2 font-heading text-base font-semibold">
-                  LOBA — Acolhimento
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {locale === "pt"
-                    ? "Iniciativa de empreendedorismo social fundada por Marjory, oferecendo apoio a mulheres e pessoas LGBTQIA+ sobreviventes de violência sexual. Consultoria para grandes eventos sobre protocolos de segurança e acessibilidade."
-                    : "Social entrepreneurship initiative founded by Marjory, providing support for women and LGBTQIA+ survivors of sexual violence. Consulted for major events on safety protocols and accessibility."}
-                </p>
-              </div>
+              {projects.map((item, i) => (
+                <div key={i} className="border border-border p-5">
+                  <p className="mb-1 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+                    {[item.kind, item.year].filter(Boolean).join(" — ")}
+                  </p>
+                  <h3 className="mb-2 font-heading text-base font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -228,28 +174,7 @@ export function AboutPage() {
             <div>
               <SectionTitle>{t("skills")}</SectionTitle>
               <div className="flex flex-wrap gap-2">
-                {(locale === "pt"
-                  ? [
-                      "Produção de Vídeo",
-                      "Edição",
-                      "SEO",
-                      "Análise de Dados",
-                      "WordPress",
-                      "RD Station",
-                      "Google Ads",
-                      "AP Style",
-                    ]
-                  : [
-                      "Video Production",
-                      "Editing",
-                      "SEO",
-                      "Data Analysis",
-                      "WordPress",
-                      "RD Station",
-                      "Google Ads",
-                      "AP News Style",
-                    ]
-                ).map((skill) => (
+                {skills.map((skill) => (
                   <span
                     key={skill}
                     className="border border-border px-3 py-1.5 text-xs font-medium tracking-wide"
@@ -264,18 +189,9 @@ export function AboutPage() {
             <div>
               <SectionTitle>{t("languages")}</SectionTitle>
               <div className="space-y-3">
-                <LanguageItem
-                  lang={locale === "pt" ? "Português" : "Portuguese"}
-                  level={locale === "pt" ? "Nativo" : "Native"}
-                />
-                <LanguageItem
-                  lang={locale === "pt" ? "Inglês" : "English"}
-                  level={locale === "pt" ? "Avançado" : "Advanced"}
-                />
-                <LanguageItem
-                  lang={locale === "pt" ? "Espanhol" : "Spanish"}
-                  level={locale === "pt" ? "Básico" : "Beginner"}
-                />
+                {languages.map((item, i) => (
+                  <LanguageItem key={i} lang={item.name} level={item.level} />
+                ))}
               </div>
             </div>
           </div>
@@ -299,9 +215,9 @@ function CredentialItem({
   tertiary,
   detail,
 }: {
-  primary: string;
-  secondary: string;
-  tertiary: string;
+  primary?: string;
+  secondary?: string;
+  tertiary?: string;
   detail?: string;
 }) {
   return (
@@ -318,7 +234,7 @@ function CredentialItem({
   );
 }
 
-function LanguageItem({ lang, level }: { lang: string; level: string }) {
+function LanguageItem({ lang, level }: { lang?: string; level?: string }) {
   return (
     <div className="flex items-center justify-between">
       <span className="text-sm">{lang}</span>

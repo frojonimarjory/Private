@@ -11,7 +11,6 @@
  */
 
 import { createClient } from "@sanity/client";
-import "dotenv/config";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
@@ -295,10 +294,10 @@ const siteSettings = {
 async function seed() {
   console.log(`Seeding Sanity project "${projectId}" dataset "${dataset}"...\n`);
 
-  // Create site settings (createOrReplace to avoid duplicates)
-  console.log("→ Site Settings...");
-  await client.createOrReplace(siteSettings);
-  console.log("  ✓ Done\n");
+  // NOTE: Site Settings is now owned by scripts/seed-content.ts (richer schema:
+  // photo, WhatsApp, location, CV, etc.). Intentionally NOT written here so this
+  // script doesn't clobber it. `siteSettings` const kept for reference only.
+  void siteSettings;
 
   // Create works
   console.log(`→ ${works.length} works...`);

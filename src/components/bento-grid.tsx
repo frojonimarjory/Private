@@ -14,7 +14,7 @@ const sizeClasses: Record<BentoSize, string> = {
 
 export function BentoGrid({ children }: { children: ReactNode }) {
   return (
-    <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 md:grid-flow-dense md:grid-cols-4 md:auto-rows-[220px]">
+    <div className="grid grid-cols-1 auto-rows-[220px] gap-1 sm:grid-cols-2 md:grid-flow-dense md:grid-cols-4">
       {children}
     </div>
   );
